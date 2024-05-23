@@ -40,7 +40,7 @@
           <div class="only-desktop">
             <section id="notification">
               <div>
-                <i class="fas fa-bell-slash"></i>
+                <i class="fas fa-bell-slash" @click="logFilterElement()"></i>
               </div>
               <div class="flex column justify-center line-height-25">
                 <p>Ricevi notifiche di nuovi messaggi</p>
@@ -52,14 +52,14 @@
                 <label for="filter">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </label>
-                <input id="filter" type="text" />
+                <input id="filter" type="text" v-model="contactsFilter" />
               </div>
             </section>
           </div>
           <section id="users">
             <ul>
               <li
-                v-for="(contact,index) in contacts"
+                v-for="(contact,index) in filterContacts()"
                 @click="changeChat(index)"
               >
                 <div class="user-content relative align-center">
@@ -98,7 +98,7 @@
                 <div
                   class="content-name flex column justify-center line-height-25"
                 >
-                  <p>{{contacts[indexChat].name}}</p>
+                  <p>{{ contacts[indexChat].name }}</p>
                   <p>Ultimo accesso oggi alle 16:26</p>
                 </div>
               </div>

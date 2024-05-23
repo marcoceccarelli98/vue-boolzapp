@@ -170,13 +170,17 @@ createApp({
       ],
       indexChat: 0,
       newMessage: "",
+      contactsFilter: "",
     };
   },
 
   methods: {
+    // CHANGE INDEX CHAT
     changeChat(index) {
       this.indexChat = index;
     },
+
+    // SEND MESSAGE
     sendMessage() {
       this.contacts[this.indexChat].messages.push({
         date: "9/10/1998 12:00:00",
@@ -192,6 +196,21 @@ createApp({
           status: "received",
         });
       }, 1000);
+    },
+
+    logFilterElement() {
+      console.log(this.filterContacts());
+    },
+
+    // FILTER CONTACTS
+    filterContacts() {
+      if (this.contactsFilter) {
+        return this.contacts.filter((element) => {
+          return element.name.includes(this.contactsFilter);
+        });
+      } else {
+        return this.contacts;
+      }
     },
   },
 }).mount("#app");
