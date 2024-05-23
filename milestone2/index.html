@@ -89,30 +89,14 @@
                 </section>
                 <section id="message">
                     <div class="row column">
-                        <div class="col">
-                            <div class="message-box message-sent">
+                        <div class="col" v-for="(message,index) in contacts[indexChat].messages">
+                            <div class="message-box"
+                                :class="{sent: contacts[indexChat].messages[index].status == 'sent',received: contacts[indexChat].messages[index].status == 'received'}">
                                 <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quaerat eos blanditiis architecto expedita aspernatur
-                                    quasi, et nobis aut officiis soluta voluptates nesciunt
-                                    voluptate ipsa fuga rerum doloribus, unde laboriosam
-                                    doloremque?
+                                    {{ contacts[indexChat].messages[index].message }}
                                 </p>
                                 <i class="fas fa-angle-down"></i>
                                 <span class="time">16:13</span>
-                            </div>
-                        </div>
-                        <div class="col">
-                            <div class="message-box message-received">
-                                <p>
-                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Quaerat eos blanditiis architecto expedita aspernatur
-                                    quasi, et nobis aut officiis soluta voluptates nesciunt
-                                    voluptate ipsa fuga rerum doloribus, unde laboriosam
-                                    doloremque?
-                                </p>
-                                <i class="fas fa-angle-down"></i>
-                                <span class="time">16:15</span>
                             </div>
                         </div>
                     </div>

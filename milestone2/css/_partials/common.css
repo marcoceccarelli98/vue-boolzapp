@@ -194,12 +194,12 @@ main {
     margin-bottom: 15px;
 }
 
-#message .message-sent {
+#message .sent {
     float: right;
     background-color: var(--bg-message-sent);
 }
 
-#message .message-received {
+#message .received {
     background-color: white;
 }
 

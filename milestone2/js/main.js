@@ -176,7 +176,6 @@ createApp({
     methods: {
         changeChat(index) {
             this.indexChat = index;
-            console.log(index);
         }
     }
 }).mount("#app");
