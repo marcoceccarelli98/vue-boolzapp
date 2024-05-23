@@ -1,0 +1,88 @@
+/*--- DESKTOP ---*/
+@media screen and (min-width: 992px) {
+
+    /* DEBUG */
+    .debug main::after {
+        content: 'DESKTOP';
+    }
+
+    body {
+        background: linear-gradient(to bottom, var(--bg-green) 0%, var(--bg-green) 15%, var(--bg-grey) 15%, var(--bg-grey) 100%);
+    }
+
+    /*----------
+       LAYOUT 
+    ----------*/
+    .container {
+        width: 80%;
+        height: 90%;
+        margin: auto;
+    }
+
+    /*----------
+       HEADER 
+    ----------*/
+    .only-mobile {
+        display: none;
+    }
+
+    .only-desktop {
+        display: block;
+    }
+
+    /*----------
+        MAIN
+    ----------*/
+
+    /*------------
+     COLUMN USERS
+    ------------*/
+
+    .col-users {
+        width: 600px;
+    }
+
+    /* MY USER */
+    .my-user-box {
+        width: 100px;
+    }
+
+    /* USERS */
+    #users {
+        height: calc(100% - 240px);
+    }
+
+    .users-box {
+        width: 100px;
+    }
+
+    .user-name p:last-child {
+        color: var(--grey);
+    }
+
+    .user-time span {
+        position: absolute;
+        right: 20px;
+        top: 25px;
+        color: var(--grey);
+    }
+
+
+}
+
+/*--- DESKTOP XL ---*/
+@media screen and (min-width: 1200px) {
+
+    /* DEBUG */
+    .debug main::after {
+        content: 'DESKTOP XL';
+    }
+
+    /*----------
+       LAYOUT 
+    ----------*/
+    .container {
+        max-width: 1140px;
+    }
+
+}
