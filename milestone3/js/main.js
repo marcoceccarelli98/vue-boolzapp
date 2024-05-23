@@ -185,6 +185,14 @@ createApp({
                 status: 'sent',
             });
             this.newMessage = '';
+            //Aswer ok after 1 second i sent any message
+            setTimeout(() => {
+                this.contacts[this.indexChat].messages.push({
+                    date: '9/10/1998 12:00:00',
+                    message: 'ok',
+                    status: 'received',
+                });
+            }, 1000);
         }
 
     }
