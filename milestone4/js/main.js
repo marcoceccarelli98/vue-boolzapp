@@ -198,10 +198,12 @@ createApp({
       }, 1000);
     },
 
-    logFilterElement() {
-      console.log(this.filterContacts());
-    },
+    // logFilterElement() {
+    //   console.log(this.filterContacts());
+    // },
+  },
 
+  computed: {
     // FILTER CONTACTS
     filterContacts() {
       if (this.contactsFilter) {
