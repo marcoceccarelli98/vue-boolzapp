@@ -1,0 +1,243 @@
+/* --------------- UTILITY ---------------*/
+.border-dashed {
+    padding: 5px;
+    border: 1px solid;
+    border-style: dashed;
+}
+
+.border {
+    border: 1px solid;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.vertical-middle {
+    vertical-align: middle;
+}
+
+.column {
+    flex-direction: column;
+}
+
+
+
+/* RADIUS */
+.radius-20px {
+    border-radius: 20px;
+}
+
+
+/* POSITION */
+
+.relative {
+    position: relative;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.left-0 {
+    left: 0px;
+}
+
+.right-210 {
+    right: 210px;
+}
+
+.top-10 {
+    top: 10px
+}
+
+.top-490 {
+    top: 490px
+}
+
+/* PADDING */
+.padding-15px {
+    padding: 15px;
+}
+
+.py-10 {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.py-20 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.py-40 {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.px-10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.px-40 {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.px-50 {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.px-80 {
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.padding-right-5px {
+    padding-right: 5px;
+}
+
+.padding-right-20px {
+    padding-right: 20px;
+}
+
+.padding-top-30 {
+    padding-top: 30px;
+}
+
+.padding-top-60 {
+    padding-top: 60px;
+}
+
+.py-bottom-20 {
+    padding-bottom: 20%;
+}
+
+/* MARGIN */
+
+.margin-auto {
+    margin: auto;
+}
+
+.margin-5 {
+    margin: 5%;
+}
+
+.margin-10px {
+    margin: 10px;
+}
+
+.margin-20px {
+    margin: 20px;
+}
+
+.margin-50px {
+    margin: 50px;
+}
+
+.margin-x-20px {
+    margin: 0 20px;
+}
+
+.margin-top-150px {
+    margin-top: 150px;
+}
+
+/* WIDTH */
+.w-20 {
+    width: 20%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-100 {
+    width: 100%;
+}
+
+/* HEIGHT */
+
+.height-0 {
+    height: 0;
+}
+
+.h-100 {
+    height: 100%;
+}
+
+.height-400px {
+    height: 400px;
+}
+
+.height-700px {
+    height: 700px;
+}
+
+/* FONT SIZE */
+.f-size-30 {
+    font-size: 30px;
+}
+
+/* TEXT */
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.line-height-25 {
+    line-height: 25px;
+}
+
+/* TEXT DECORATION*/
+.no-deco {
+    text-decoration: none;
+}
+
+/* TEXT COLOR */
+
+.black {
+    color: black;
+}
+
+.white {
+    color: white;
+}
+
+/* BACKGROUNDS */
+.bg-white {
+    background-color: white;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-yellow {
+    background-color: yellow;
+}
+
+.bg-orange {
+    background-color: orange;
+}
+
+.bg-green {
+    background-color: green;
+}
