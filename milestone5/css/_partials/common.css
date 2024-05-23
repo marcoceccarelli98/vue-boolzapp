@@ -226,6 +226,33 @@ main {
   color: var(--grey);
 }
 
+.options {
+  background-color: white;
+  border-radius: 5px;
+  width: 150px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  z-index: 10;
+}
+
+.options button {
+  background-color: transparent;
+  display: block;
+  width: 100%;
+  height: 50px;
+}
+
+.options button:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.options button:last-child {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 /* SECTION WRITE */
 #write {
   padding: 0 30px;

@@ -171,6 +171,8 @@ createApp({
       indexChat: 0,
       newMessage: "",
       contactsFilter: "",
+      viewOptions: false,
+      optionsIndex: 0,
     };
   },
 
@@ -202,23 +204,35 @@ createApp({
     // FILTER CONTACTS
     filterContacts() {
       this.contacts.forEach((contact) => {
-        if (contact.name.includes(this.contactsFilter)) {
+        //If the text in input search is contained in name set visible true
+        if (
+          contact.name.toLowerCase().includes(this.contactsFilter.toLowerCase())
+        ) {
           contact.visible = true;
         } else {
           contact.visible = false;
         }
       });
-      // if (this.contactsFilter) {
-      //   return this.contacts.filter((element) => {
-      //     return element.name.includes(this.contactsFilter);
-      //   });
-      // } else {
-      //   return this.contacts;
-      // }
     },
 
-    // logFilterElement() {
-    //   console.log(this.filterContacts());
-    // },
+    // TOGGLE OPTIONS
+    toggleOptions(index) {
+      this.contacts[this.indexChat].messages.forEach((message, i) => {
+        message.id = i;
+      });
+
+      if (
+        index != this.optionsIndex ||
+        (index == this.optionsIndex && !this.viewOptions)
+      ) {
+        this.optionsIndex = index;
+        this.viewOptions = true;
+      } else {
+        this.viewOptions = false;
+      }
+    },
+
+    // DELETE MESSAGE
+    deleteMessage() {},
   },
 }).mount("#app");

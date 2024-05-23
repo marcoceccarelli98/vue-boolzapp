@@ -16,6 +16,7 @@
       href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/x-icon" href="./img/whatsicon.png" />
     <title>Boolzap</title>
   </head>
 
@@ -40,7 +41,7 @@
           <div class="only-desktop">
             <section id="notification">
               <div>
-                <i class="fas fa-bell-slash" @click="logFilterElement()"></i>
+                <i class="fas fa-bell-slash"></i>
               </div>
               <div class="flex column justify-center line-height-25">
                 <p>Ricevi notifiche di nuovi messaggi</p>
@@ -56,7 +57,7 @@
                   id="filter"
                   type="text"
                   v-model="contactsFilter"
-                  @input="filterContacts()"
+                  @input="filterContacts"
                 />
               </div>
             </section>
@@ -122,14 +123,32 @@
               <div
                 class="col"
                 v-for="(message,index) in contacts[indexChat].messages"
+                :data-message="`msg-${index}`"
               >
                 <div
                   class="message-box"
                   :class="{sent: contacts[indexChat].messages[index].status == 'sent',received: contacts[indexChat].messages[index].status == 'received'}"
                 >
                   <p>{{ contacts[indexChat].messages[index].message }}</p>
-                  <i class="fas fa-angle-down"></i>
+                  <i
+                    class="fas fa-angle-down"
+                    @click="toggleOptions(index)"
+                  ></i>
                   <span class="time">16:13</span>
+
+                  <!-- OPTIONS -->
+                  <div
+                    class="options"
+                    v-show="contacts[indexChat].messages[index].id == optionsIndex && viewOptions"
+                  >
+                    <button>Message info</button>
+                    <button
+                      @click="contacts[indexChat].messages.splice(index, 1)"
+                    >
+                      Delete message
+                    </button>
+                  </div>
+                  <!-- /OPTIONS -->
                 </div>
               </div>
             </div>
@@ -141,7 +160,7 @@
                 type="text"
                 placeholder="Scrivi un messaggio"
                 v-model="newMessage"
-                @keyup.enter="sendMessage()"
+                @keyup.enter="sendMessage"
               />
               <i class="fas fa-microphone"></i>
             </div>
