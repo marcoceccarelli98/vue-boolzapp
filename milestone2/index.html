@@ -71,10 +71,10 @@
                     <div class="content flex w-100">
                         <div class="content-left flex">
                             <div class="content-photo">
-                                <img class="user-icon" src="./img/avatar_1.jpg" alt="michele">
+                                <img class="user-icon" :src="contacts[indexChat].avatar" alt="michele">
                             </div>
                             <div class="content-name flex column justify-center line-height-25">
-                                <p>Michele</p>
+                                <p>{{contacts[indexChat].name}}</p>
                                 <p>Ultimo accesso oggi alle 16:26</p>
                             </div>
                         </div>
