@@ -177,6 +177,7 @@ createApp({
   methods: {
     // CHANGE INDEX CHAT
     changeChat(index) {
+      console.log(index);
       this.indexChat = index;
     },
 
@@ -198,21 +199,27 @@ createApp({
       }, 1000);
     },
 
+    // FILTER CONTACTS
+    filterContacts() {
+      this.contacts.forEach((contact) => {
+        if (contact.name.includes(this.contactsFilter)) {
+          contact.visible = true;
+        } else {
+          contact.visible = false;
+        }
+        console.log(contact.visible);
+      });
+      // if (this.contactsFilter) {
+      //   return this.contacts.filter((element) => {
+      //     return element.name.includes(this.contactsFilter);
+      //   });
+      // } else {
+      //   return this.contacts;
+      // }
+    },
+
     // logFilterElement() {
     //   console.log(this.filterContacts());
     // },
-  },
-
-  computed: {
-    // FILTER CONTACTS
-    filterContacts() {
-      if (this.contactsFilter) {
-        return this.contacts.filter((element) => {
-          return element.name.includes(this.contactsFilter);
-        });
-      } else {
-        return this.contacts;
-      }
-    },
   },
 }).mount("#app");

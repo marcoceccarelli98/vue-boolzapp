@@ -52,15 +52,21 @@
                 <label for="filter">
                   <i class="fa-solid fa-magnifying-glass"></i>
                 </label>
-                <input id="filter" type="text" v-model="contactsFilter" />
+                <input
+                  id="filter"
+                  type="text"
+                  v-model="contactsFilter"
+                  @input="filterContacts()"
+                />
               </div>
             </section>
           </div>
           <section id="users">
             <ul>
               <li
-                v-for="(contact,index) in filterContacts"
+                v-for="(contact,index) in contacts"
                 @click="changeChat(index)"
+                v-show="contacts[index].visible"
               >
                 <div class="user-content relative align-center">
                   <div class="users-box">
@@ -92,7 +98,7 @@
                   <img
                     class="user-icon"
                     :src="contacts[indexChat].avatar"
-                    alt="michele"
+                    :alt="contacts[indexChat].name"
                   />
                 </div>
                 <div

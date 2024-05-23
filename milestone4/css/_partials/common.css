@@ -12,6 +12,10 @@
   color: white;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 /*--------------------
        COMMON
 --------------------*/
