@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7711c3f1fc.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <title>Boolzap</title>
+</head>
+
+<body class="debug flex">
+    <div id="app" class="container v-cloak">
+        <div class="row h-100">
+            <div class="col-users bg-white">
+                <section id="my-user" class="flex align-center justify-between">
+                    <div class="my-user-box">
+                        <img class="user-icon margin-auto" src="./img/avatar_io.jpg" alt="">
+                    </div>
+                    <div class="padding-right-20px only-desktop">
+                        <i class="fas fa-circle-notch"></i>
+                        <i class="fas fa-message"></i>
+                        <i class="fas fa-ellipsis-vertical"></i>
+                    </div>
+                </section>
+                <div class="only-desktop">
+                    <section id="notification">
+                        <div>
+                            <i class="fas fa-bell-slash"></i>
+                        </div>
+                        <div class="flex column justify-center line-height-25">
+                            <p>Ricevi notifiche di nuovi messaggi</p>
+                            <a href="">Attiva notifiche desktop</a>
+                        </div>
+                    </section>
+                    <section id="search">
+                        <div class="search-bar">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input type="text">
+                        </div>
+                    </section>
+                </div>
+                <section id="users">
+                    <ul>
+                        <li v-for="(contact,index) in contacts" @click="changeChat(index)">
+                            <div class="user-content relative align-center">
+                                <div class="users-box">
+                                    <img class="user-icon margin-auto" :src="contacts[index].avatar"
+                                        :alt="contacts[index].name">
+                                </div>
+                                <div class="user-name only-desktop flex column justify-center line-height-25">
+                                    <p>{{contacts[index].name}}</p>
+                                    <p>{{contacts[index].messages[0].message}}</p>
+                                </div>
+                                <div class="user-time only-desktop">
+                                    <span>16:15</span>
+                                </div>
+                            </div>
+                        </li>
+
+                    </ul>
+                </section>
+            </div>
+            <div class="col-message">
+                <section id="name" class="flex align-center">
+                    <div class="content flex w-100">
+                        <div class="content-left flex">
+                            <div class="content-photo">
+                                <img class="user-icon" src="./img/avatar_1.jpg" alt="michele">
+                            </div>
+                            <div class="content-name flex column justify-center line-height-25">
+                                <p>Michele</p>
+                                <p>Ultimo accesso oggi alle 16:26</p>
+                            </div>
+                        </div>
+                        <div class="content-right">
+                            <div class="content-icons">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fas fa-paperclip"></i>
+                                <i class="fas fa-ellipsis-vertical"></i>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="message">
+                    <div class="row column">
+                        <div class="col">
+                            <div class="message-box message-sent">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Quaerat eos blanditiis architecto expedita aspernatur
+                                    quasi, et nobis aut officiis soluta voluptates nesciunt
+                                    voluptate ipsa fuga rerum doloribus, unde laboriosam
+                                    doloremque?
+                                </p>
+                                <i class="fas fa-angle-down"></i>
+                                <span class="time">16:13</span>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="message-box message-received">
+                                <p>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                    Quaerat eos blanditiis architecto expedita aspernatur
+                                    quasi, et nobis aut officiis soluta voluptates nesciunt
+                                    voluptate ipsa fuga rerum doloribus, unde laboriosam
+                                    doloremque?
+                                </p>
+                                <i class="fas fa-angle-down"></i>
+                                <span class="time">16:15</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="write">
+                    <div class="h-100 flex align-center">
+                        <i class="fa-regular fa-face-smile"></i>
+                        <input type="text" placeholder="Scrivi un messaggio">
+                        <i class="fas fa-microphone"></i>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+</body>
+
+</html>
