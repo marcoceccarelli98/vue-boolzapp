@@ -81,7 +81,9 @@
                     class="user-name only-desktop flex column justify-center line-height-25"
                   >
                     <p>{{contacts[index].name}}</p>
-                    <p>{{contacts[index].messages[0].message}}</p>
+                    <p v-if="contacts[index].messages.length > 0">
+                      {{contacts[index].messages[0].message}}
+                    </p>
                   </div>
                   <div class="user-time only-desktop">
                     <span>16:15</span>
@@ -120,6 +122,7 @@
           </section>
           <section id="message">
             <div class="row column">
+              <!-- MESSAGE -->
               <div
                 class="col"
                 v-for="(message,index) in contacts[indexChat].messages"
@@ -152,6 +155,7 @@
                 </div>
               </div>
             </div>
+            <!-- /MESSAGE -->
           </section>
           <section id="write">
             <div class="h-100 flex align-center">

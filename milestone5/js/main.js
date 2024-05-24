@@ -217,6 +217,7 @@ createApp({
 
     // TOGGLE OPTIONS
     toggleOptions(index) {
+      console.log(this.contacts[0].messages[0]);
       this.contacts[this.indexChat].messages.forEach((message, i) => {
         message.id = i;
       });
@@ -233,6 +234,13 @@ createApp({
     },
 
     // DELETE MESSAGE
-    deleteMessage() {},
+    // deleteMessage() {
+    //   if (
+    //     this.contacts[this.indexChat].messages[0] != undefined ||
+    //     this.contacts[this.indexChat].messages[0] != []
+    //   ) {
+    //     this.contacts[this.indexChat].messages.splice(index, 1);
+    //   }
+    // },
   },
 }).mount("#app");
