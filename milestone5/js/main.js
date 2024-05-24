@@ -2,6 +2,8 @@
 
 const { createApp } = Vue;
 
+const dt = luxon.DateTime;
+
 createApp({
   data() {
     return {
@@ -185,20 +187,22 @@ createApp({
 
     // SEND MESSAGE
     sendMessage() {
-      this.contacts[this.indexChat].messages.push({
-        date: "9/10/1998 12:00:00",
-        message: this.newMessage,
-        status: "sent",
-      });
-      this.newMessage = "";
-      //Aswer ok after 1 second i sent any message
-      setTimeout(() => {
+      if (this.newMessage.trim() != "") {
         this.contacts[this.indexChat].messages.push({
           date: "9/10/1998 12:00:00",
-          message: "ok",
-          status: "received",
+          message: this.newMessage,
+          status: "sent",
         });
-      }, 1000);
+        this.newMessage = "";
+        //Aswer ok after 1 second i sent any message
+        setTimeout(() => {
+          this.contacts[this.indexChat].messages.push({
+            date: "9/10/1998 12:00:00",
+            message: "ok",
+            status: "received",
+          });
+        }, 1000);
+      }
     },
 
     // FILTER CONTACTS
@@ -232,15 +236,5 @@ createApp({
         this.viewOptions = false;
       }
     },
-
-    // DELETE MESSAGE
-    // deleteMessage() {
-    //   if (
-    //     this.contacts[this.indexChat].messages[0] != undefined ||
-    //     this.contacts[this.indexChat].messages[0] != []
-    //   ) {
-    //     this.contacts[this.indexChat].messages.splice(index, 1);
-    //   }
-    // },
   },
 }).mount("#app");
