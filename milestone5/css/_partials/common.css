@@ -198,7 +198,9 @@ main {
   position: relative;
   border-radius: 20px;
   padding: 20px 30px 30px 20px;
-  width: 80%;
+  /* width: 80%; */
+  display: inline-block;
+  max-width: 80%;
   margin-bottom: 15px;
 }
 
@@ -218,6 +220,10 @@ main {
   color: var(--grey);
 }
 
+#message .message-box i:hover {
+  opacity: 0.5;
+}
+
 #message .message-box .time {
   position: absolute;
   font-size: 15px;
@@ -232,8 +238,15 @@ main {
   width: 150px;
   position: absolute;
   top: 30px;
-  right: 30px;
   z-index: 10;
+}
+
+.optLeft {
+  right: 30px;
+}
+
+.optRight {
+  right: -130px;
 }
 
 .options button {
