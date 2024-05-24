@@ -37,6 +37,10 @@ main {
   display: none;
 }
 
+.dNone {
+  display: none;
+}
+
 .user-icon {
   height: 60px;
   width: 60px;
@@ -48,7 +52,8 @@ main {
 --------------------*/
 
 .col-users {
-  display: none;
+  /* display: none; */
+  width: 100%;
 }
 
 .user-content {
@@ -59,6 +64,14 @@ main {
 .users-box {
   display: flex;
   height: 100px;
+}
+
+.viewUsers {
+  display: block;
+}
+
+.viewMessage {
+  display: block;
 }
 
 /* MY USER */
@@ -183,6 +196,14 @@ main {
   padding: 0 10px;
   font-size: 25px;
   color: var(--grey);
+}
+
+#name .only-mobile i {
+  font-size: 40px;
+  padding-left: 10px;
+  line-height: 60px;
+  margin-right: -20px;
+  color: var(--darkgrey);
 }
 
 /* SECTION MESSAGE */

@@ -23,10 +23,13 @@
   <body class="debug flex">
     <div id="app" class="container v-cloak">
       <div class="row h-100">
-        <!-- ----------- -->
-        <!--    USERS    -->
-        <!-- ----------- -->
-        <div class="col-users bg-white">
+        <!-- ----------------------------------- -->
+        <!--               USERS                 -->
+        <!-- ----------------------------------- -->
+        <div
+          :class="{viewUsers: viewUsers, dNone:!viewUsers}"
+          class="col-users bg-white"
+        >
           <!-- MY USER -->
           <section id="my-user" class="flex align-center justify-between">
             <div class="my-user-box">
@@ -104,14 +107,22 @@
           </section>
           <!-- /USERS -->
         </div>
-        <!-- ----------- -->
-        <!--   MESSAGE   -->
-        <!-- ----------- -->
-        <div class="col-message">
+        <!-- ----------------------------------- -->
+        <!--               MESSAGE               -->
+        <!-- ----------------------------------- -->
+        <div
+          class="col-message"
+          :class="{viewMessage: !viewUsers, dNone:viewUsers}"
+        >
           <!-- NAME -->
           <section id="name" class="flex align-center">
             <div class="content flex w-100">
               <div class="content-left flex">
+                <!-- BACK ARROW -->
+                <div class="only-mobile">
+                  <i @click="backToContacts" class="fa-solid fa-arrow-left"></i>
+                </div>
+                <!-- /BACK ARROW -->
                 <div class="content-photo">
                   <img
                     class="user-icon"

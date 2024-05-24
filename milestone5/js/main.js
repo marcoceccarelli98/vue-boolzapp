@@ -175,6 +175,7 @@ createApp({
       contactsFilter: "",
       viewOptions: false,
       optionsIndex: null,
+      viewUsers: true,
     };
   },
 
@@ -183,6 +184,7 @@ createApp({
     changeChat(index) {
       console.log(index);
       this.indexChat = index;
+      this.viewUsers = false;
     },
 
     // SEND MESSAGE
@@ -231,6 +233,11 @@ createApp({
       }
     },
 
+    //BACK TO CONTACTS
+    backToContacts() {
+      this.viewUsers = true;
+    },
+
     // DELETE MESSAGE
     deleteMsg(index) {
       this.contacts[this.indexChat].messages.splice(index, 1);
@@ -247,7 +254,6 @@ createApp({
       //Conversion of string to date format
       const dateTime = dt.fromFormat(lastMsgDt, "dd/MM/yyyy HH:mm:ss");
       const str = dateTime.toFormat("HH:mm");
-      console.log(str);
       return str;
     },
   },
