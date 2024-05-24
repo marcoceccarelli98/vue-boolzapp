@@ -174,7 +174,7 @@ createApp({
       newMessage: "",
       contactsFilter: "",
       viewOptions: false,
-      optionsIndex: 0,
+      optionsIndex: null,
     };
   },
 
@@ -221,20 +221,21 @@ createApp({
 
     // TOGGLE OPTIONS
     toggleOptions(index) {
-      console.log(this.contacts[0].messages[0]);
-      this.contacts[this.indexChat].messages.forEach((message, i) => {
-        message.id = i;
-      });
-
-      if (
-        index != this.optionsIndex ||
-        (index == this.optionsIndex && !this.viewOptions)
-      ) {
+      if (this.optionsIndex === index) {
+        // Close if already open
+        this.optionsIndex = null;
+        this.viewOptions = false;
+      } else {
         this.optionsIndex = index;
         this.viewOptions = true;
-      } else {
-        this.viewOptions = false;
       }
+    },
+
+    // DELETE MESSAGE
+    deleteMsg(index) {
+      this.contacts[this.indexChat].messages.splice(index, 1);
+      this.viewOptions = false;
+      this.optionsIndex = null;
     },
 
     // SHOW ONLY HOUR AND MIN OF LAST MESSAGE
@@ -249,5 +250,18 @@ createApp({
       console.log(str);
       return str;
     },
+
+    // SHOW ONLY HOUR AND MIN OF LAST MESSAGE
+    // showLastMsgTime(index) {
+    //   // String that contains the last message date and time
+    //   const lastMsgDt =
+    //     this.contacts[index].messages[this.contacts[index].messages.length - 1]
+    //       .date;
+    //   //Conversion of string to date format
+    //   const dateTime = dt.fromFormat(lastMsgDt, "dd/MM/yyyy HH:mm:ss");
+    //   const str = dateTime.toFormat("HH:mm");
+    //   console.log(str);
+    //   return str;
+    // },
   },
 }).mount("#app");

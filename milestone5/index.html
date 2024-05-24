@@ -94,7 +94,9 @@
                     </p>
                   </div>
                   <div class="user-time only-desktop">
-                    <span>{{showLastMsgTime(index)}}</span>
+                    <span v-if="contacts[index].messages.length > 0"
+                      >{{showLastMsgTime(index)}}</span
+                    >
                   </div>
                 </div>
               </li>
@@ -156,14 +158,10 @@
                   <!-- OPTIONS -->
                   <div
                     class="options"
-                    v-show="contacts[indexChat].messages[index].id == optionsIndex && viewOptions"
+                    v-show="index == optionsIndex && viewOptions"
                   >
                     <button>Message info</button>
-                    <button
-                      @click="contacts[indexChat].messages.splice(index, 1)"
-                    >
-                      Delete message
-                    </button>
+                    <button @click="deleteMsg(index)">Delete message</button>
                   </div>
                   <!-- /OPTIONS -->
                 </div>
