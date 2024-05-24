@@ -23,7 +23,11 @@
   <body class="debug flex">
     <div id="app" class="container v-cloak">
       <div class="row h-100">
+        <!-- ----------- -->
+        <!--    USERS    -->
+        <!-- ----------- -->
         <div class="col-users bg-white">
+          <!-- MY USER -->
           <section id="my-user" class="flex align-center justify-between">
             <div class="my-user-box">
               <img
@@ -38,6 +42,8 @@
               <i class="fas fa-ellipsis-vertical"></i>
             </div>
           </section>
+          <!-- /MY USER -->
+          <!-- SEARCH AND NOTIFICATION -->
           <div class="only-desktop">
             <section id="notification">
               <div>
@@ -62,6 +68,8 @@
               </div>
             </section>
           </div>
+          <!-- /SEARCH AND NOTIFICATION -->
+          <!-- USERS -->
           <section id="users">
             <ul>
               <li
@@ -86,14 +94,19 @@
                     </p>
                   </div>
                   <div class="user-time only-desktop">
-                    <span>16:15</span>
+                    <span>{{showLastMsgTime(index)}}</span>
                   </div>
                 </div>
               </li>
             </ul>
           </section>
+          <!-- /USERS -->
         </div>
+        <!-- ----------- -->
+        <!--   MESSAGE   -->
+        <!-- ----------- -->
         <div class="col-message">
+          <!-- NAME -->
           <section id="name" class="flex align-center">
             <div class="content flex w-100">
               <div class="content-left flex">
@@ -120,9 +133,10 @@
               </div>
             </div>
           </section>
+          <!-- /NAME -->
+          <!-- MESSAGE -->
           <section id="message">
             <div class="row column">
-              <!-- MESSAGE -->
               <div
                 class="col"
                 v-for="(message,index) in contacts[indexChat].messages"
@@ -157,6 +171,7 @@
             </div>
             <!-- /MESSAGE -->
           </section>
+          <!-- INPUT -->
           <section id="write">
             <div class="h-100 flex align-center">
               <i class="fa-regular fa-face-smile"></i>
@@ -169,6 +184,7 @@
               <i class="fas fa-microphone"></i>
             </div>
           </section>
+          <!-- /INPUT -->
         </div>
       </div>
     </div>

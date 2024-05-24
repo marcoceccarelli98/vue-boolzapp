@@ -236,5 +236,18 @@ createApp({
         this.viewOptions = false;
       }
     },
+
+    // SHOW ONLY HOUR AND MIN OF LAST MESSAGE
+    showLastMsgTime(index) {
+      //String that contains the last message date and time
+      const lastMsgDt =
+        this.contacts[index].messages[this.contacts[index].messages.length - 1]
+          .date;
+      //Conversion of string to date format
+      const dateTime = dt.fromFormat(lastMsgDt, "dd/MM/yyyy HH:mm:ss");
+      const str = dateTime.toFormat("HH:mm");
+      console.log(str);
+      return str;
+    },
   },
 }).mount("#app");
