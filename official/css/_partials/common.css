@@ -57,50 +57,6 @@ main {
 }
 
 /* MY USER */
-.my-user-box {
-  width: 100px;
-}
-
-/* USERS */
-#users {
-  height: calc(100% - 240px);
-}
-
-.user-content {
-  display: flex;
-  border-bottom: 1px solid lightgray;
-}
-
-.users-box {
-  display: flex;
-  /* ---------------- */
-  min-width: 100px;
-  max-width: 100px;
-  /* width: 100px; NON HA SENSO MA FUNZIONA */
-  /* ---------------- */
-  height: 100px;
-}
-
-.user-name p:last-child {
-  color: var(--grey);
-}
-
-.user-time span {
-  position: absolute;
-  right: 20px;
-  top: 25px;
-  color: var(--grey);
-}
-
-.viewUsers {
-  display: block;
-}
-
-.viewMessage {
-  display: block;
-}
-
-/* MY USER */
 
 #my-user {
   background-color: var(--top-bar);
@@ -108,6 +64,7 @@ main {
 
 .my-user-box {
   height: 80px;
+  width: 100px;
   display: flex;
   padding: 0 20px;
 }
@@ -169,17 +126,50 @@ main {
 
 /* USERS */
 #users {
-  height: calc(100% - 80px);
+  height: calc(100% - 240px);
   overflow-y: scroll;
 }
 
 #users .user-content {
-  background-color: white;
+  /* background-color: white; */
+  display: flex;
+  border-bottom: 1px solid lightgray;
 }
 
 #users .user-content:hover {
   background-color: var(--top-bar);
 }
+
+.users-box {
+  display: flex;
+  /* ---------------- */
+  min-width: 100px;
+  max-width: 100px;
+  /* width: 100px; NON HA SENSO MA FUNZIONA */
+  /* ---------------- */
+  height: 100px;
+}
+
+.user-name p:last-child {
+  color: var(--grey);
+}
+
+.user-time span {
+  position: absolute;
+  right: 20px;
+  top: 25px;
+  color: var(--grey);
+}
+
+.viewUsers {
+  display: block;
+}
+
+.viewMessage {
+  display: block;
+}
+
+/* USERS */
 
 .user-name {
   max-width: 200px;

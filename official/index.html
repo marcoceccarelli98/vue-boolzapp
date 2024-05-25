@@ -48,30 +48,28 @@
           <!-- /MY USER -->
           <!-- SEARCH AND NOTIFICATION -->
           <!-- <div class="only-desktop"> -->
-          <div>
-            <section id="notification">
-              <div>
-                <i class="fas fa-bell-slash"></i>
-              </div>
-              <div class="flex column justify-center line-height-25">
-                <p>Ricevi notifiche di nuovi messaggi</p>
-                <a href="">Attiva notifiche desktop</a>
-              </div>
-            </section>
-            <section id="search">
-              <div class="search-bar">
-                <label for="filter">
-                  <i class="fa-solid fa-magnifying-glass"></i>
-                </label>
-                <input
-                  id="filter"
-                  type="text"
-                  v-model="contactsFilter"
-                  @input="filterContacts"
-                />
-              </div>
-            </section>
-          </div>
+          <section id="notification">
+            <div>
+              <i class="fas fa-bell-slash"></i>
+            </div>
+            <div class="flex column justify-center line-height-25">
+              <p>Ricevi notifiche di nuovi messaggi</p>
+              <a href="">Attiva notifiche desktop</a>
+            </div>
+          </section>
+          <section id="search">
+            <div class="search-bar">
+              <label for="filter">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </label>
+              <input
+                id="filter"
+                type="text"
+                v-model="contactsFilter"
+                @input="filterContacts"
+              />
+            </div>
+          </section>
           <!-- /SEARCH AND NOTIFICATION -->
           <!-- USERS -->
           <section id="users">
