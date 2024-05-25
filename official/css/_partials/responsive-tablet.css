@@ -27,12 +27,22 @@
 
   .col-users {
     display: block;
-    width: 100px;
+    width: 110px;
     border-right: 1px solid var(--grey);
   }
 
   .users-box {
     width: 100%;
+  }
+
+  /* INC MAX WIDTH WORK WHEN viewOnlyUsers IS TRUE */
+  .incMaxWidth {
+    width: 1200px;
+  }
+
+  .incMaxWidth .user-name {
+    max-width: 1200px;
+    display: block;
   }
 
   /*--------------------

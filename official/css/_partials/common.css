@@ -140,6 +140,11 @@ main {
   background-color: var(--top-bar);
 }
 
+.user-name {
+  max-width: 500px;
+  overflow: hidden;
+}
+
 .users-box {
   display: flex;
   /* ---------------- */
@@ -167,13 +172,6 @@ main {
 
 .viewMessage {
   display: block;
-}
-
-/* USERS */
-
-.user-name {
-  max-width: 200px;
-  overflow: hidden;
 }
 
 /*--------------------

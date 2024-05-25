@@ -92,7 +92,8 @@
                   >
                     <p>{{contact.name}}</p>
                     <p v-if="contact.messages.length > 0">
-                      {{contact.messages[contact.messages.length - 1].message}}
+                      {{truncateString(contact.messages[contact.messages.length
+                      - 1].message, 60)}}
                     </p>
                   </div>
                   <div class="user-time only-desktop">
