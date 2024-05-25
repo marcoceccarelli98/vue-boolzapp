@@ -25,7 +25,9 @@ createApp({
             },
             {
               date: "10/01/2020 16:15:22",
-              message: "Tutto fatto!",
+              // message: "Tutto fatto!",
+              message:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Est ipsam temporibus voluptas exercitationem reprehenderit commodi vero beatae, nulla voluptatibus aliquam dolor consectetur perferendis iure vel aspernatur, corrupti voluptatem recusandae eaque!",
               status: "received",
             },
           ],
@@ -175,7 +177,7 @@ createApp({
       contactsFilter: "",
       viewOptions: false,
       optionsIndex: null,
-      viewUsers: true,
+      viewOnlyUsers: true,
     };
   },
 
@@ -184,7 +186,7 @@ createApp({
     changeChat(index) {
       console.log(index);
       this.indexChat = index;
-      this.viewUsers = false;
+      this.viewOnlyUsers = false;
     },
 
     // SEND MESSAGE
@@ -235,7 +237,7 @@ createApp({
 
     //BACK TO CONTACTS
     backToContacts() {
-      this.viewUsers = true;
+      this.viewOnlyUsers = true;
     },
 
     // DELETE MESSAGE

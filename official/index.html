@@ -27,7 +27,7 @@
         <!--               USERS                 -->
         <!-- ----------------------------------- -->
         <div
-          :class="{viewUsers: viewUsers, dNone:!viewUsers}"
+          :class="{viewOnlyUsers: viewOnlyUsers, dNone:!viewOnlyUsers, incMaxWidth: viewOnlyUsers}"
           class="col-users bg-white"
         >
           <!-- MY USER -->
@@ -92,7 +92,7 @@
                   >
                     <p>{{contact.name}}</p>
                     <p v-if="contact.messages.length > 0">
-                      {{contact.messages[0].message}}
+                      {{contact.messages[contact.messages.length - 1].message}}
                     </p>
                   </div>
                   <div class="user-time only-desktop">
@@ -111,7 +111,7 @@
         <!-- ----------------------------------- -->
         <div
           class="col-message"
-          :class="{viewMessage: !viewUsers, dNone:viewUsers}"
+          :class="{viewMessage: !viewOnlyUsers, dNone:viewOnlyUsers}"
         >
           <!-- NAME -->
           <section id="name" class="flex align-center">

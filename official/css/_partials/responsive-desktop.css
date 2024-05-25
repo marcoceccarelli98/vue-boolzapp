@@ -51,6 +51,15 @@
     width: 600px;
   }
 
+  /* INC MAX WIDTH WORK WHEN viewOnlyUsers IS TRUE */
+  .incMaxWidth {
+    width: 1200px;
+  }
+
+  .incMaxWidth .user-name {
+    max-width: 1000px;
+  }
+
   /* NOTIFICATIONS */
   #notification {
     display: flex;
