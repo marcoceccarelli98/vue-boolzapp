@@ -47,8 +47,12 @@
      COLUMN USERS
     ------------*/
 
-  .col-users {
+  .col-users:not(.incMaxWidth) {
     width: 600px;
+  }
+
+  .col-users {
+    width: 1200px;
   }
 
   /* NOTIFICATIONS */
