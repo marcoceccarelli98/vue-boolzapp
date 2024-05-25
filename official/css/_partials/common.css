@@ -54,6 +54,7 @@ main {
 .col-users {
   /* display: none; */
   width: 100%;
+  position: relative;
 }
 
 /* MY USER */
@@ -97,9 +98,17 @@ main {
 
 /* SEARCH */
 #search {
+  z-index: 10;
   height: 60px;
   background-color: #fafafa;
   /* padding: 10px; */
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#search:focus-within {
+  right: -200px;
 }
 
 .search-bar {
@@ -126,6 +135,7 @@ main {
 
 /* USERS */
 #users {
+  margin-top: 60px;
   height: calc(100% - 240px);
   overflow-y: scroll;
 }
@@ -190,7 +200,7 @@ main {
   font-size: 17px;
 }
 
-#name img {
+#name .content-photo {
   margin: 0 30px;
 }
 
