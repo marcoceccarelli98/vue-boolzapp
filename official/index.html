@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/7711c3f1fc.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/x-icon" href="./img/whatsicon.png" />
+    <title>Boolzap</title>
+  </head>
+
+  <body class="debug flex">
+    <div id="app" class="container v-cloak">
+      <div class="row h-100">
+        <!-- ----------------------------------- -->
+        <!--               USERS                 -->
+        <!-- ----------------------------------- -->
+        <div
+          :class="{viewUsers: viewUsers, dNone:!viewUsers}"
+          class="col-users bg-white"
+        >
+          <!-- MY USER -->
+          <section id="my-user" class="flex align-center justify-between">
+            <div class="my-user-box">
+              <img
+                class="user-icon margin-auto"
+                src="./img/avatar_io.jpg"
+                alt=""
+              />
+            </div>
+            <div class="padding-right-20px only-desktop">
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-message"></i>
+              <i class="fas fa-ellipsis-vertical"></i>
+            </div>
+          </section>
+          <!-- /MY USER -->
+          <!-- SEARCH AND NOTIFICATION -->
+          <!-- <div class="only-desktop"> -->
+          <div>
+            <section id="notification">
+              <div>
+                <i class="fas fa-bell-slash"></i>
+              </div>
+              <div class="flex column justify-center line-height-25">
+                <p>Ricevi notifiche di nuovi messaggi</p>
+                <a href="">Attiva notifiche desktop</a>
+              </div>
+            </section>
+            <section id="search">
+              <div class="search-bar">
+                <label for="filter">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                </label>
+                <input
+                  id="filter"
+                  type="text"
+                  v-model="contactsFilter"
+                  @input="filterContacts"
+                />
+              </div>
+            </section>
+          </div>
+          <!-- /SEARCH AND NOTIFICATION -->
+          <!-- USERS -->
+          <section id="users">
+            <ul>
+              <li
+                v-for="(contact,index) in contacts"
+                @click="changeChat(index)"
+                v-show="contact.visible"
+              >
+                <div class="user-content relative align-center">
+                  <div class="users-box">
+                    <img
+                      class="user-icon margin-auto"
+                      :src="contact.avatar"
+                      :alt="contact.name"
+                    />
+                  </div>
+                  <div
+                    class="user-name no-tablet flex column justify-center line-height-25"
+                  >
+                    <p>{{contact.name}}</p>
+                    <p v-if="contact.messages.length > 0">
+                      {{contact.messages[0].message}}
+                    </p>
+                  </div>
+                  <div class="user-time only-desktop">
+                    <span v-if="contact.messages.length > 0"
+                      >{{showLastMsgTime(index)}}</span
+                    >
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </section>
+          <!-- /USERS -->
+        </div>
+        <!-- ----------------------------------- -->
+        <!--               MESSAGE               -->
+        <!-- ----------------------------------- -->
+        <div
+          class="col-message"
+          :class="{viewMessage: !viewUsers, dNone:viewUsers}"
+        >
+          <!-- NAME -->
+          <section id="name" class="flex align-center">
+            <div class="content flex w-100">
+              <div class="content-left flex">
+                <!-- BACK ARROW -->
+                <div class="only-mobile">
+                  <i @click="backToContacts" class="fa-solid fa-arrow-left"></i>
+                </div>
+                <!-- /BACK ARROW -->
+                <div class="content-photo">
+                  <img
+                    class="user-icon"
+                    :src="contacts[indexChat].avatar"
+                    :alt="contacts[indexChat].name"
+                  />
+                </div>
+                <div
+                  class="content-name flex column justify-center line-height-25"
+                >
+                  <p>{{ contacts[indexChat].name }}</p>
+                  <p>Ultimo accesso oggi alle 16:26</p>
+                </div>
+              </div>
+              <div class="content-right">
+                <div class="content-icons">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+                  <i class="fas fa-paperclip"></i>
+                  <i class="fas fa-ellipsis-vertical"></i>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- /NAME -->
+          <!-- MESSAGE -->
+          <section id="message">
+            <div class="row column">
+              <div
+                class="col"
+                v-for="(message,index) in contacts[indexChat].messages"
+                :data-message="`msg-${index}`"
+              >
+                <div
+                  class="message-box"
+                  :class="{sent: message.status == 'sent',received: message.status == 'received'}"
+                >
+                  <p>{{ message.message }}</p>
+                  <i
+                    class="fas fa-angle-down"
+                    @click="toggleOptions(index)"
+                  ></i>
+                  <span class="time">16:13</span>
+
+                  <!-- OPTIONS -->
+                  <div
+                    class="options"
+                    :class="{optLeft:message.status == 'sent',optRight:message.status == 'received'}"
+                    v-show="index == optionsIndex && viewOptions"
+                  >
+                    <button>Message info</button>
+                    <button @click="deleteMsg(index)">Delete message</button>
+                  </div>
+                  <!-- /OPTIONS -->
+                </div>
+              </div>
+            </div>
+            <!-- /MESSAGE -->
+          </section>
+          <!-- INPUT -->
+          <section id="write">
+            <div class="h-100 flex align-center">
+              <i class="fa-regular fa-face-smile"></i>
+              <input
+                type="text"
+                placeholder="Scrivi un messaggio"
+                v-model="newMessage"
+                @keyup.enter="sendMessage"
+              />
+              <i class="fas fa-microphone"></i>
+            </div>
+          </section>
+          <!-- /INPUT -->
+        </div>
+      </div>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js "></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+/*----------
+  VARIABLE
+ ----------*/
+
+:root {
+  --top-bar: #eaeaea;
+  --bottom-bar: #f3eeeb;
+  /* Backgrounds */
+  --bg-green: #009587;
+  --bg-grey: #dcdbd1;
+  --bg-notification: #8fdafc;
+  --bg-message-sent: #d4f9bb;
+  /* Colors */
+  --grey: #b5babc;
+  --darkgrey: #808080;
+}
