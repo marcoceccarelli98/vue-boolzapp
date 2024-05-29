@@ -191,9 +191,9 @@ createApp({
 
     // SEND MESSAGE
     sendMessage() {
-      if (this.newMessage.trim() != "") {
+      if (this.newMessage.trim() !== "") {
         this.contacts[this.indexChat].messages.push({
-          date: "9/10/1998 12:00:00",
+          date: "09/10/1998 12:00:00",
           message: this.newMessage,
           status: "sent",
         });
@@ -201,7 +201,7 @@ createApp({
         //Aswer ok after 1 second i sent any message
         setTimeout(() => {
           this.contacts[this.indexChat].messages.push({
-            date: "9/10/1998 12:00:00",
+            date: "09/10/1998 12:00:00",
             message: "ok",
             status: "received",
           });
