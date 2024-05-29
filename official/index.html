@@ -192,7 +192,7 @@
                 @keyup.enter="sendMessage"
               />
               <i v-if="newMessage.length == 0" class="fas fa-microphone"></i>
-              <i v-else class="fas fa-paper-plane"></i>
+              <i v-else @click="sendMessage" class="fas fa-paper-plane"></i>
             </div>
           </section>
           <!-- /INPUT -->
